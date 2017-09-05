@@ -1,0 +1,165 @@
+@import "../../style/themes/default";
+@import "../../style/mixins/index";
+@import "../../input/style/mixin";
+@import "../../button/style/mixin";
+/*@import "../../grid/style/mixin";*/
+@import "../../grid/style/mixin-rtl";
+@import "./mixin";
+
+@form-prefix-cls: ~"@{ant-prefix}-form";
+@form-component-height: @input-height-lg;
+@form-feedback-icon-size: 14px;
+
+.reset-form();
+
+
+.@{form-prefix-cls}-item-required:before {
+  margin-left: 4px;
+  margin-right: 0;
+}
+
+
+
+// Form items
+// You should wrap labels and controls in .@{form-prefix-cls}-item for optimum spacing
+.@{form-prefix-cls}-item {
+
+	&-label {
+	    text-align: right !important;
+	    label {
+
+	      	&:after {
+	        	margin: 0 2px 0 8px;
+	      	}
+	    }
+	}
+}
+
+.@{form-prefix-cls}-text {
+  padding-left: 8px;
+  padding-right: 0;
+}
+
+
+// 表单下的输入框尺寸唯一: 大尺寸
+form {
+  .has-feedback {
+    .@{ant-prefix}-input {
+      padding-left: 24px;
+      padding-right: 10px;
+    }
+
+    // Fix overlapping between feedback icon and <Select>'s arrow.
+    // https://github.com/ant-design/ant-design/issues/4431
+    > .@{ant-prefix}-select .@{ant-prefix}-select-arrow,
+    > .@{ant-prefix}-select .@{ant-prefix}-select-selection__clear,
+    :not(.@{ant-prefix}-input-group-addon) > .@{ant-prefix}-select .@{ant-prefix}-select-arrow,
+    :not(.@{ant-prefix}-input-group-addon) > .@{ant-prefix}-select .@{ant-prefix}-select-selection__clear {
+      left: 28px;
+      right: auto;
+    }
+    > .@{ant-prefix}-select .@{ant-prefix}-select-selection-selected-value,
+    :not(.@{ant-prefix}-input-group-addon) > .@{ant-prefix}-select .@{ant-prefix}-select-selection-selected-value {
+      padding-left: 42px;
+      padding-right: 0;
+    }
+
+    .@{ant-prefix}-cascader-picker {
+      &-arrow {
+        padding-left: 36px;
+        padding-right: 0;
+      }
+      &-clear {
+        left: 28px;
+        right: auto;
+      }
+    }
+
+    // Fix issue: https://github.com/ant-design/ant-design/issues/4783
+    .@{ant-prefix}-calendar-picker {
+      &-icon,
+      &-clear {
+        left: 28px;
+        right: auto;
+      }
+    }
+  }
+
+
+  // Radios and checkboxes on same line
+  .@{ant-prefix}-radio-inline,
+  .@{ant-prefix}-checkbox-inline {
+    margin-right: 8px;
+    margin-left: 0;
+
+    &:first-child {
+      margin-right: 0;
+    }
+  }
+
+
+
+  .@{ant-prefix}-checkbox-vertical + .@{ant-prefix}-checkbox-vertical,
+  .@{ant-prefix}-radio-vertical + .@{ant-prefix}-radio-vertical {
+    margin-right: 0;
+  }
+
+  .@{ant-prefix}-input-number {
+    margin-left: 8px;
+    margin-right: 0;
+  }
+
+
+}
+// Input combined with select
+.@{ant-prefix}-input-group-wrap {
+  .@{ant-prefix}-select-selection {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: @border-radius-base;
+    border-top-right-radius: 0;
+    border-top-left-radius: @border-radius-base;
+  }
+
+  .@{ant-prefix}-select-selection--single {
+    margin-right: -1px;
+    margin-left: 0;
+    .@{ant-prefix}-select-selection__rendered {
+
+      padding-right: 8px;
+      padding-left: 0;
+      padding-left: 25px;
+      padding-right: 0;
+    }
+  }
+}
+
+// Form layout
+//== Vertical Form
+.make-vertical-layout() {
+
+  text-align: right !important;
+}
+
+
+//== Inline Form
+.@{form-prefix-cls}-inline {
+  .@{form-prefix-cls}-item {
+
+    margin-left: 16px;
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+}
+
+// Validation state
+.has-success,
+.has-warning,
+.has-error,
+.is-validating {
+  &.has-feedback:after {
+    position: absolute;
+    left: 0;
+    right: auto;
+  }
+}
+

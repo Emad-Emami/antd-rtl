@@ -1,0 +1,78 @@
+@import "../../style/themes/default";
+@import "../../style/mixins/index";
+@import "../../input/style/mixin";
+
+@pagination-prefix-cls: ~"@{ant-prefix}-pagination";
+
+.@{pagination-prefix-cls} {
+
+  &-total-text {
+    margin-left: 8px;
+    margin-right: 0;
+  }
+
+  &-item {
+
+    margin-left: 8px;
+    margin-right: 0;
+
+  }
+
+  &-prev,
+  &-jump-prev,
+  &-jump-next {
+    margin-left: 8px;
+    margin-right: 0;
+  }
+
+
+  &-prev {
+    a {
+      &:after {
+        content: "\e61f";
+      }
+    }
+  }
+
+  &-next {
+    a {
+      &:after {
+        content: "\e620";
+      }
+    }
+  }
+
+  &-slash {
+    margin: 0 5px 0 10px;
+  }
+
+  &-options {
+
+    margin-right: 16px;
+    margin-left: 0;
+
+    &-size-changer {
+      margin-left: 8px;
+      margin-right: 0;
+    }
+
+  }
+
+  &-simple &-simple-pager {
+
+    margin-left: 8px;
+    margin-right: 0;
+
+  }
+}
+
+.@{pagination-prefix-cls} {
+
+  &.mini &-options {
+
+    margin-right: 8px;
+    margin-left: 0;
+
+  }
+}
+

@@ -1,0 +1,16 @@
+@import "../../style/themes/default";
+
+@breadcrumb-prefix-cls: ~"@{ant-prefix}-breadcrumb";
+
+.@{breadcrumb-prefix-cls} {
+
+  &-link {
+    > .@{iconfont-css-prefix} + span {
+      margin-right: 4px;
+      margin-left: 0;
+    }
+  }
+}
+.ant-breadcrumb > span {
+    display: inline-block;
+}

@@ -1,0 +1,151 @@
+@import "../../style/themes/default";
+@import "../../style/mixins/index";
+
+@menu-prefix-cls: ~"@{ant-prefix}-menu";
+
+// default theme
+.@{menu-prefix-cls} {
+
+  padding-right: 0; // Override default ul/ol
+
+
+  &-inline,
+  &-vertical {
+    border-left: @border-width-base @border-style-base @border-color-split;
+    border-right: none;
+    .@{menu-prefix-cls}-item {
+      margin-left: -1px;
+      margin-right: 0;
+      right: 1px;
+      left: auto;
+      &:after {
+        border-left: 3px solid @primary-color;
+        border-right: none;
+      }
+    }
+  }
+
+  &-vertical&-sub {
+    border-left: 0;
+    .@{menu-prefix-cls}-item {
+      border-left: 0;
+      margin-right: 0;
+      right: 0;
+      left: auto;
+      &:after {
+        border-left: 0;
+      }
+    }
+    > .@{menu-prefix-cls}-item:first-child {
+      border-radius:0 0 @border-radius-base @border-radius-base;
+    }
+    > .@{menu-prefix-cls}-item:last-child,
+    > .@{menu-prefix-cls}-item-group:last-child > .@{menu-prefix-cls}-item-group-list:last-child > .@{menu-prefix-cls}-item:last-child {
+      border-radius:@border-radius-base @border-radius-base 0 0;
+    }
+  }
+
+
+  &-submenu-horizontal > & {
+    top: 100%;
+    right: 0;
+    left: auto;
+  }
+
+
+  &-submenu-vertical > & {
+    top: 0;
+    right: 100%;
+    left: auto;
+    margin-right: 4px;
+    margin-left: 0;
+  }
+
+  &-item,
+  &-submenu-title {
+    .@{iconfont-css-prefix} {
+      margin-left: 8px;
+      margin-right: 0;
+    }
+  }
+
+  &-submenu {
+
+    &-vertical > .@{menu-prefix-cls}-submenu-title:after {
+      left: 16px;
+      right: auto;
+      transform: rotate;
+      transform: rotate(90deg);
+      font-size: 9px;
+    }
+
+    &-inline > .@{menu-prefix-cls}-submenu-title:after {
+      left: 16px;
+      right: auto;
+    }
+
+  }
+
+  &-horizontal {
+
+    > .@{menu-prefix-cls}-item,
+    > .@{menu-prefix-cls}-submenu {
+      float: right;
+
+    }
+
+  }
+
+  &-inline-collapsed {
+    > .@{menu-prefix-cls}-item,
+    > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
+      right: 0;
+      left: auto;
+    }
+  }
+
+  &-item-group-list {
+    .@{menu-prefix-cls}-item,
+    .@{menu-prefix-cls}-submenu-title {
+      padding: 0 28px  0 16px;
+    }
+  }
+
+
+  &-sub&-inline {
+
+    & .@{menu-prefix-cls}-item-group-title {
+      padding-right: 32px;
+      padding-left: 0;
+    }
+  }
+
+}
+
+// dark theme
+.@{menu-prefix-cls} {
+
+
+  &-dark&-inline,
+  &-dark&-vertical {
+    border-left: 0;
+  }
+
+  &-dark&-inline &-item,
+  &-dark&-vertical &-item {
+    border-left: 0;
+    margin-right: 0;
+    right: 0;
+    left: auto;
+    &:after {
+      border-left: 0;
+    }
+  }
+
+  &-dark &-item-selected {
+    border-left: 0;
+    &:after {
+      border-left: 0;
+    }
+  }
+}

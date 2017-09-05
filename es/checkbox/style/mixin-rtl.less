@@ -1,0 +1,72 @@
+@import "../../style/mixins/index";
+
+.antCheckboxFn(@checkbox-prefix-cls: ~"@{ant-prefix}-checkbox") {
+  @checkbox-inner-prefix-cls: ~"@{checkbox-prefix-cls}-inner";
+  .@{checkbox-prefix-cls} {
+
+
+
+    &-checked:after {
+      position: absolute;
+      right: 0;
+      left: auto;
+
+    }
+
+    &-inner {
+      right: 0;
+      left: auto;
+      display: block;
+
+      &:after {
+        right: 4px;
+        left: auto;
+        display: table;
+        border-right: 0;
+      }
+    }
+
+    &-input {
+      right: 0;
+      left: 0;
+    }
+  }
+
+  // 半选状态
+  .@{checkbox-prefix-cls}-indeterminate .@{checkbox-inner-prefix-cls}:after {
+    right: 2px;
+    left: auto;
+  }
+
+
+
+  .@{checkbox-prefix-cls}-wrapper {
+    &:not(:last-child) {
+      margin-right: 0;
+      float: left;
+    }
+  }
+
+  .@{checkbox-prefix-cls}-wrapper + span,
+  .@{checkbox-prefix-cls} + span {
+    padding-left: 0px;
+  }
+
+
+
+  @ie8: \0screen;
+
+  // IE8 hack for https://github.com/ant-design/ant-design/issues/2148
+  @media @ie8 {
+    .@{checkbox-prefix-cls}-checked .@{checkbox-prefix-cls}-inner:before,
+    .@{checkbox-prefix-cls}-checked .@{checkbox-prefix-cls}-inner:after {
+      .iconfont-font("\e632");
+
+      right: 2px;
+      left: auto;
+
+    }
+  }
+}
+
+

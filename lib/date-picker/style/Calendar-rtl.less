@@ -1,0 +1,76 @@
+.calendarPanelHeader(@calendar-prefix-cls) {
+
+
+  .@{calendar-prefix-cls}-prev-century-btn,
+  .@{calendar-prefix-cls}-prev-decade-btn,
+  .@{calendar-prefix-cls}-prev-year-btn {
+    right: 7px;
+    left: auto;
+
+  }
+
+  .@{calendar-prefix-cls}-next-century-btn,
+  .@{calendar-prefix-cls}-next-decade-btn,
+  .@{calendar-prefix-cls}-next-year-btn {
+    left: 7px;
+    right: auto;
+
+  }
+
+  .@{calendar-prefix-cls}-prev-month-btn {
+    right: 29px;
+    left: auto;
+
+  }
+
+  .@{calendar-prefix-cls}-next-month-btn {
+    left: 29px;
+    right: auto;
+
+  }
+}
+
+.@{calendar-prefix-cls} {
+
+  &-disabled-cell&-today &-date {
+    position: relative;
+    margin-left: 5px;
+    margin-right: 0;
+    padding-right: 5px;
+    padding-left: 0;
+    &:before {
+      top: -1px;
+      right: 5px;
+      left: auto;
+    }
+  }
+
+  &-disabled-cell-first-of-row &-date {
+    border-top-right-radius: 4px;
+    border-top-left-radius: 0;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 0;
+  }
+
+  &-disabled-cell-last-of-row &-date {
+    border-top-left-radius: 4px;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 0;
+  }
+
+  .@{calendar-prefix-cls}-today-btn,
+  .@{calendar-prefix-cls}-clear-btn {
+    margin: 0 8px 0 0 ;
+  }
+
+  .@{calendar-prefix-cls}-clear-btn {
+    left: 5px;
+    right: auto;
+  }
+
+}
+.ant-calendar .ant-calendar-ok-btn {
+  float: right;
+  margin-top: 10px;
+}

@@ -1,0 +1,55 @@
+@import "../../style/themes/default";
+@import "../../style/mixins/index";
+@import "../../input/style/mixin";
+
+@cascader-prefix-cls: ~"@{ant-prefix}-cascader";
+
+.@{cascader-prefix-cls} {
+
+  &-picker {
+
+
+    &-label {
+      right: 0;
+      left: auto;
+      padding: 0 8px 0 12px;
+    }
+
+    &-clear {
+
+      left: 8px;
+      right: auto;
+    }
+
+
+    // arrow
+    &-arrow {
+      left: 8px;
+      right: auto;
+    }
+  }
+
+  &-menu {
+    border-left: @border-width-base @border-style-base @border-color-split;
+    border-right: none;
+
+    &:last-child {
+      border-left-color: transparent;
+      border-right-color: transparent;
+      margin-left: -1px;
+      margin-right: 0;
+    }
+  }
+  &-menu-item {
+
+    &-expand {
+
+      &:after {
+        .iconfont-font("\e61f");
+        .iconfont-size-under-12px(8px);
+        left: 8px;
+        right: auto;
+      }
+    }
+  }
+}

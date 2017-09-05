@@ -1,0 +1,73 @@
+// mixins for button
+// ------------------------
+
+
+// Horizontal button groups styl
+// --------------------------------------------------
+.btn-group(@btnClassName: btn) {
+  .button-group-base(@btnClassName);
+
+  .@{btnClassName} + .@{btnClassName},
+  .@{btnClassName} + &,
+  & + .@{btnClassName},
+  & + & {
+    margin-right: -1px;
+    margin-left: 0;
+  }
+
+  .@{btnClassName}:not(:first-child):not(:last-child) {
+    border-radius: 0;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  > .@{btnClassName}:first-child {
+    margin-right: 0;
+    margin-left: auto;
+    &:not(:last-child) {
+      border-bottom-left-radius: 0;
+      border-top-left-radius: 0;
+      border-bottom-right-radius: @border-radius-base;
+      border-top-right-radius: @border-radius-base;
+      padding-left: 8px;
+      padding-right: auto;
+    }
+  }
+
+  > .@{btnClassName}:last-child:not(:first-child) {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: @border-radius-base;
+    border-top-left-radius: @border-radius-base;
+    padding-right: 8px;
+    padding-left: auto;
+  }
+
+  & > & {
+    float: right;
+  }
+
+  & > &:not(:first-child):not(:last-child) > .@{btnClassName} {
+    border-radius: 0;
+  }
+
+  & > &:first-child:not(:last-child) {
+    > .@{btnClassName}:last-child {
+      border-bottom-left-radius: 0;
+      border-top-left-radius: 0;
+      border-bottom-right-radius: @border-radius-base;
+      border-top-right-radius: @border-radius-base;
+      padding-left: 8px;
+      padding-right: auto;
+    }
+  }
+
+  & > &:last-child:not(:first-child) > .@{btnClassName}:first-child {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: @border-radius-base;
+    border-top-left-radius: @border-radius-base;
+    padding-right: 8px;
+    padding-left: auto;
+  }
+}

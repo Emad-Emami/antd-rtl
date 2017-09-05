@@ -1,0 +1,40 @@
+@import "../../style/themes/default";
+@import "../../style/mixins/index";
+
+@dropdown-prefix-cls: ~"@{ant-prefix}-dropdown";
+
+.@{dropdown-prefix-cls} {
+  /*right: -9999px;*/
+  left: auto;
+
+  &-menu {
+    text-align: right;
+
+
+    &-submenu-title:after {
+      left: 8px;
+      right: auto;
+    }
+
+
+    &-submenu-vertical > & {
+      right: 100%;
+      left: auto;
+      margin-right: 4px;
+      margin-left: 0;
+    }
+
+  }
+
+}
+
+
+.@{dropdown-prefix-cls}-button {
+
+  &.@{ant-prefix}-btn-group > .@{ant-prefix}-btn:last-child:not(:first-child) {
+    padding-left: 8px;
+    float: right;
+    margin-right: 5px;
+  }
+}
+

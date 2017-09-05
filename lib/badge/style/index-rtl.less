@@ -1,0 +1,61 @@
+@import "../../style/themes/default";
+
+@badge-prefix-cls: ~"@{ant-prefix}-badge";
+@number-prefix-cls: ~"@{ant-prefix}-scroll-number";
+
+.@{badge-prefix-cls} {
+
+  &-count {
+    transform: translateX(50%);
+    a,
+    a:hover {
+      color: #fff;
+    }
+  }
+
+  &-dot {
+    transform: translateX(50%);
+  }
+
+  &-status {
+
+    &-processing {
+
+      &:after {
+        position: absolute;
+        right: 0;
+        left: auto;
+      }
+    }
+
+    &-text {
+      color: @text-color;
+      font-size: @font-size-base;
+      margin-right: 8px;
+      margin-left:auto;
+    }
+  }
+
+}
+
+
+
+@keyframes antZoomBadgeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0) translateX(50%);
+  }
+  100% {
+    transform: scale(1) translateX(50%);
+  }
+}
+
+@keyframes antZoomBadgeOut {
+  0% {
+    transform: scale(1) translateX(50%);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0) translateX(50%);
+  }
+}

@@ -1,0 +1,22 @@
+
+.float-grid-columns(@class) {
+  .col(@index) { // initial
+    @item: ~".@{ant-prefix}-col@{class}-@{index}";
+    .col((@index + 1), @item);
+  }
+  .col(@index, @list) when (@index =< @grid-columns) { // general
+    @item: ~".@{ant-prefix}-col@{class}-@{index}";
+    .col((@index + 1), ~"@{list}, @{item}");
+  }
+  .col(@index, @list) when (@index > @grid-columns) { // terminal
+    @{list} {
+      float: right;
+      flex: 0 0 auto;
+    }
+  }
+  .col(1); // kickstart it
+}
+
+
+
+
