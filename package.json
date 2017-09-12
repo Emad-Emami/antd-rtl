@@ -1,7 +1,7 @@
 {
-  "name": "antd",
-  "version": "2.12.8",
-  "title": "Ant Design",
+  "name": "antd-rtl",
+  "version": "1.0.0",
+  "title": "antd RTL",
   "description": "An enterprise-class UI design language and React-based implementation",
   "homepage": "http://ant.design/",
   "keywords": [
